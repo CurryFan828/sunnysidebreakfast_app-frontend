@@ -45,6 +45,31 @@ img {
     min-height: 420px;
     transition: box-shadow 0.2s;
     gap: 14px;
+    position: relative; /* Needed for absolute positioning the heart */
+}
+
+.favorite {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.4rem;
+    color: #ff7675;
+    background: #fff;
+    border-radius: 50%;
+    padding: 6px 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 3;
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+}
+
+.favorite.not {
+    color: rgb(184, 184, 184);
+}
+
+.favorite:hover {
+    transform: scale(1.25);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
 
 .food-img-wrapper {
@@ -54,7 +79,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .food-img {
@@ -73,6 +98,26 @@ img {
     line-height: 1.4;
     margin-bottom: 8px;
     flex: 0 0 auto;
+    align-self: center;
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+    margin-bottom: 16px; /* space below description */
+    margin-top: 8px;     /* space above description */
+    align-self: center;
+    min-height: 32px;    /* ensures consistent spacing even if description is short */
+}
+
+.price {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 12px;
 }
 
 .quantity-controls {
@@ -80,6 +125,10 @@ img {
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .quantity-btn {
@@ -96,6 +145,12 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+
+.quantity-btn:hover {
+    background: #ff7675;
+}
+
 
 .quantity-value {
     min-width: 28px;
@@ -116,9 +171,16 @@ img {
     box-shadow: 0 2px 6px rgba(0,0,0,0.18);
     transition: background 0.2s;
     margin-top: 8px;
+    margin-bottom: 10px;
     width: 100%;
     max-width: 180px;
 }
+
+.add-cart-btn:hover {
+    background: #ff7675;
+    color: white;
+}
+
 
 .food-item:hover {
     border: 3px solid black;

@@ -1,21 +1,25 @@
 <h1>Welcome to Isaac's Online App</h1>
 <h3>Lets Take a Look at the Menu!</h3>
 <div class="food-grid">
-    <div class="food-item" *ngFor="let food of foods">
-        <div class="food-img-wrapper">
-            <a>
-                <img class="food-img" [src]="food" [alt]="food">
-            </a>
-        </div>
-        <div class="food-desc">
-        <!-- Replace with your actual description logic -->
-        A delicious food item!
-        </div>
-        <div class="quantity-controls">
-            <button class="quantity-btn">-</button>
-                <span class="quantity-value">1</span>
-            <button class="quantity-btn">+</button>
-        </div>
-        <button class="add-cart-btn">Add to Cart</button>
+  <div class="food-item" *ngFor="let food of foods">
+    <span class="favorite {{food.favorite ? '' : 'not'}}" (click)="toggleFavorite(food)" aria-label="Toggle Favorite" tabindex="0">
+        ❤
+    </span>
+    <div class="food-img-wrapper">
+      <img class="food-img" [src]="food.imageUrl" [alt]="food">
     </div>
+    <div class="name">
+        {{ food.name }}
+    </div>
+    <div class="price">
+        {{ food.price | currency:'USD':true }}
+    </div>
+    <div class="product-item-footer">
+    <div class="quantity-controls">
+      <button class="quantity-btn" (click)="decrement(food)">-</button>
+      <span class="quantity-value">{{ food.quantity }}</span>
+      <button class="quantity-btn" (click)="increment(food)">+</button>
+    </div>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
 </div>
