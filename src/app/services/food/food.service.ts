@@ -8,6 +8,9 @@ import { Tag } from '../../shared/models/Tag';
 export class FoodService {
   constructor() { }
 
+  getFoodById(id: number): Food{
+    return this.getAllFoods().find(food => food.id == id)!;
+  }
 
   getAllFoodsBySearchTerm(searchTerm: string): Food[] {
     return this.getAllFoods().filter(food => food.name.toLowerCase().includes(searchTerm.toLowerCase()));

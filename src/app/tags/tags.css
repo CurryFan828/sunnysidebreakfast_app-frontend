@@ -44,3 +44,11 @@ a:focus-visible {
   margin: 16px auto;
   width: 60%;
 }
+
+/* .pills-divider-tags{ 
+  border: none;
+  height: 2px;
+  background-color: #b1832e; /* same dark tan color 
+  margin: 16px auto;
+  width: fit-content;
+} */

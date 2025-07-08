@@ -1,1 +1,30 @@
-<p>food-page works!</p>
+<div class="page-wrapper">
+  <div class="container">
+    <img [src]="food.imageUrl" [alt]="food.name" class="food-image" />
+
+    <div class="details">
+      <div class="info-block">
+        <div class="header-row">
+          <span class="name">{{ food.name }}</span>
+          <span class="favorite {{ food.favorite ? '' : 'not' }}" (click)="toggleFavorite()">❤</span>
+        </div>
+
+        <!-- <div class="tags">
+          <app-tags [foodPageTags]="food.tags"></app-tags>
+        </div> -->
+
+        <div class="cook-time">
+          Time to cook is about <strong>{{ food.cookTime }}</strong> minutes
+        </div>
+      </div>
+
+      <!-- Added wrapper for price + button -->
+      <div class="price-and-button">
+        <div class="price">
+          <span>{{ food.price | currency }}</span>
+        </div>
+        <button class="add-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
