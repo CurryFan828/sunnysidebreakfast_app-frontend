@@ -1,15 +1,66 @@
 header {
     background-color: tan;
+    /* border-bottom: 2px solid tan; */
     padding: 0;
-    border-bottom: 1px solid black;
 }
+
+/* Hero Transparent: homepage only */
+.hero-transparent header {
+  background-color: transparent;
+  border-bottom: none;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-transparent nav ul li a {
+  color: white;
+}
+
+.hero-transparent nav ul li a::after {
+  background: white;
+}
+
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* or however tall your hero section is */
+  background: url('../../assets/foods/hero.webp') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+/* === Host container === */
+:host(.hero-transparent) header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.3); /* subtle translucent background */
+  padding: 0.5rem 2rem;    /* padding inside header */
+  color: white;
+}
+
+/* Also fix nav link colors for the homepage */
+:host(.hero-transparent) nav ul li a {
+  color: white;
+}
+
+:host(.hero-transparent) nav ul li a:hover::after {
+  background: white;
+}
+
+
 
 a {
     color:black;
 }
 
 a:hover{
-    background: #FFB6C1;
+    /* background: #FFB6C1; */
+    border-radius: 20px;
     color: black;
 }
 
@@ -17,28 +68,77 @@ a:hover{
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Add this */
+    max-width: 1200px;    /* Optional: add max-width if needed */
+    padding: 0 20px;      /* Optional: horizontal spacing */
 }
 a.logo {
     font-weight: bold;
     padding: 1em;
 }
 
-nav ul {
+nav ul li {
     list-style-type: none;
-    margin: 0;
+    padding: 0 1em;
+    display: flex; /* Add this */
+    align-items: center; /* Optional: vertically center items */
 }
 
+
 nav ul li a {
-    padding: 1em;
+    position: relative;
+    margin: .5rem;
+    padding: .5rem;
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
 }
 
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.1rem;           /* adjust as needed to sit right under text */
+    width: 100%;
+    height: 2px;
+    background: black;
+    transform: scaleX(0);    /* hidden initially */
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
 
-/* .logo {
-  height: 100px;
+nav ul li a:hover::after {
+  transform: scaleX(.5);    /* grow the line under the word */
+}
+
+.logo {
+  height: 85px;
   width: auto;
   display: inline-block;
+  border-radius: 20%;
   cursor: pointer;
-} */
+  border: 3px solid transparent;
+}
+
+.logo:hover{
+    border: 3px solid rgb(134, 134, 134);
+}
+
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-tabs a {
+    width: 100%;
+    padding: 10px;
+  }
+}

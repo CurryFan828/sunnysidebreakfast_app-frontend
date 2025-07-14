@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from '../services/food/food.service';
+import { Header } from "../header/header";
 import { CommonModule } from '@angular/common';
+
+import { FoodService } from '../services/food/food.service';
 import { Food } from '../shared/models/Food';
 import { ActivatedRoute } from '@angular/router';
 import { Search } from "../search/search";
@@ -10,74 +12,17 @@ import { CartService } from '../services/cart/cart.service';
 import { PopupAlertService } from '../services/popup-alert/popup-alert.service';
 import { PopupAlertComponent } from '../popup-alert/popup-alert';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
-  imports: [CommonModule, Search, Tags, RouterLink, PopupAlertComponent],
+  imports: [CommonModule, Header],
   standalone: true
 })
 export class HomeComponent implements OnInit {
-
-  addedMessage: string = '';
-  showAddedPopup: boolean = false;
-
-  foods: Food[] = [];
-  constructor(private foodService: FoodService, 
-    private route: ActivatedRoute,
-    private cartService: CartService,
-    private alertService: PopupAlertService
-  ) { }
-
   ngOnInit(): void {
-    // Subscribe to the route parameters to get the search term
-    this.route.params.subscribe(params => {
-      if (params['searchTerm']) {
-        this.foods = this.foodService.getAllFoodsBySearchTerm(params['searchTerm'])
-        } else if(params['tag']) {
-        this.foods = this.foodService.getAllFoodsByTag(params['tag']);
-        } else {
-        this.foods = this.foodService.getAllFoods();
-        }
-        // ensure each food has a counter field
-        this.foods.forEach(f => (f.quantity ??= 0));
-    });
-  }
-
-  increment(food: Food) {
-    food.quantity = (food.quantity || 0) + 1;
-  }
-
-  decrement(food: Food) {
-    if ((food.quantity || 0) > 0) {
-      food.quantity = (food.quantity || 0) - 1;
-    }
-  }
-
-  toggleFavorite(food: Food) {
-    food.favorite = !food.favorite;
-  }
-
-  /** Push the chosen quantity into the cart, then reset the counter */
-  addToCart(food: Food) {
-  const qty = food.quantity || 0;
-  if (qty > 0) {
     
-    // this.cartService.addToCart(food, qty); 
-    // Add the item(s) to the cart
-    for (let i = 0; i < qty; i++) {
-      this.cartService.addToCart(food);
-    }
-
-    // Show popup alert with proper pluralization
-    const plural = qty > 1 ? 'orders' : 'order';
-    this.alertService.show(`${qty} ${plural} of ${food.name} added`);
-
-    // Reset quantity to zero after adding
-    food.quantity = 0;
   }
-}
-
-
 
 }

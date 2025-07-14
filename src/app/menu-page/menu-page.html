@@ -1,0 +1,33 @@
+<app-popup-alert type="success"></app-popup-alert> <!-- Add this to display popup alerts -->
+
+<h1>Start Ordering Now</h1>
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found [visible]="!foods || foods.length <= 0" resetLinkText="Reset Search"></app-not-found>
+
+<div class="food-grid">
+  <div class="food-item" *ngFor="let food of foods">
+    <!-- Navigation link below (clicking this goes to the food page) -->
+    <span class="favorite {{food.favorite ? '' : 'not'}}" (click)="toggleFavorite(food)" aria-label="Toggle Favorite" tabindex="0">
+        ❤
+    </span>
+    <div class="food-img-wrapper" routerLink="/food/{{food.id}}">
+      <img class="food-img" [src]="food. imageUrl" [alt]="food"  loading="lazy">
+    </div>
+    <div class="name">
+        {{ food.name }}
+    </div>
+    <div class="price">
+        {{ food.price | currency:'USD':true }}
+    </div>
+    <!-- End of navigation link -->
+
+    <div class="product-item-footer">
+    <div class="quantity-controls">
+      <button class="quantity-btn" (click)="decrement(food)">-</button>
+      <span class="quantity-value">{{ food.quantity }}</span>
+      <button class="quantity-btn" (click)="increment(food)">+</button>
+    </div>
+    <button  class="add-cart-btn" (click)="addToCart(food)">Add to Cart</button>
+  </div>
+</div>

@@ -7,11 +7,12 @@ import { CartItem } from '../shared/models/CartItem';
 import { FoodService } from '../services/food/food.service';
 import { PopupAlertService } from '../services/popup-alert/popup-alert.service';
 import { PopupAlertComponent } from '../popup-alert/popup-alert';
+import { NotFound } from "../not-found/not-found";
 
 
 @Component({
   selector: 'app-cart-page',
-  imports: [CommonModule, RouterModule, PopupAlertComponent],
+  imports: [CommonModule, RouterModule, PopupAlertComponent, NotFound],
   templateUrl: './cart-page.html',
   styleUrls: ['./cart-page.css']
 })

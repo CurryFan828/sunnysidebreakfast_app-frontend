@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PopupAlertService } from '../services/popup-alert/popup-alert.service';
 import { CartPage } from '../cart-page/cart-page'; 
+import { MenuPage } from '../menu-page/menu-page';
 
 @Component({
   selector: 'app-popup-alert',

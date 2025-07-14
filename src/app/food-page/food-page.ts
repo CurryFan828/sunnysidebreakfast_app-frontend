@@ -5,10 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FoodService } from '../services/food/food.service';
 import { Tags } from "../tags/tags";
 import { CartService } from '../services/cart/cart.service';
+import { NotFound } from "../not-found/not-found";
 
 @Component({
   selector: 'app-food-page',
-  imports: [CommonModule],
+  imports: [CommonModule, NotFound],
   templateUrl: './food-page.html',
   styleUrls: ['./food-page.css']
 })

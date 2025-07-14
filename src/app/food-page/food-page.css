@@ -114,8 +114,9 @@
 }
 
 .add-cart-btn:hover {
-  background: #ff7675;
-  color: white;
+  /* background: #ff7675; */
+  color: black;
+  transform: scale(1.02);
 }
 
 
