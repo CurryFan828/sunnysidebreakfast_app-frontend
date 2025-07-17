@@ -94,6 +94,11 @@ body {
   text-align:center;
   background:#ffffff; /* soft warm background across full width */
 }
+
+.review-card:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+}
 .reviews h2{
   font-size:2rem;
   border-bottom: 2px solid black;

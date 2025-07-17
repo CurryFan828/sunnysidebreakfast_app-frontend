@@ -27,13 +27,13 @@ ul li {
 }
 
 ul li a{
-    color: black
+    color: black;
 }
 
 ul li a:hover{
     color: black;
     border-bottom: 3px solid tan;
-    padding: 2px;
+    /* padding: 2px; */
 }
 
 /* Selects the last item that matches this selecter(ul li is the selector), Aka the last item in the cart will not have a bottom border */
@@ -87,9 +87,8 @@ ul .remove-button{
 }
 
 ul .remove-button:hover {
-    background: #ff7675;
-    color: white;
-}
+    transform: scale(1.03);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);}
 
 .checkout{
     display: flex;
@@ -115,3 +114,23 @@ ul .remove-button:hover {
     justify-content: center;
     align-items: flex-start;
 }
+
+.checkout button{
+    background: linear-gradient(90deg, #4dc516ef 60%);
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 10px 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 650;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition: background 0.2s;
+    max-width: 200px;
+}
+
+.checkout button:hover{
+    transform: scale(1.03);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
+}
+
