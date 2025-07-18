@@ -116,6 +116,7 @@ ul .remove-button:hover {
 }
 
 .checkout button{
+    position: center;
     background: linear-gradient(90deg, #4dc516ef 60%);
     border: none;
     border-radius: 12px;

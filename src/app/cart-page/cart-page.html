@@ -49,9 +49,10 @@
             <button (click)="openCheckout()" class="checkout-btn">Checkout</button>
 
              <!-- Slide out checkout panel (desktop) -->
-            <div class="checkout-panel" [class.open]="showCheckoutPanel">
-                <button class="close-btn" (click)="closeCheckout()">Close Checkout</button>
-                <app-checkout-page [cart]="cart" [visible]="showCheckoutPanel" (close)="closeCheckout()"></app-checkout-page>
+            <div>
+                <app-checkout-page [cart]="cart" [visible]="showCheckoutPanel" (close)="closeCheckout()">
+                    <button class="close-btn" (click)="closeCheckout()">Close</button>
+                </app-checkout-page>
             </div>
         </div>
     </div>

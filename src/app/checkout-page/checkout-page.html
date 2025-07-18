@@ -1,8 +1,12 @@
 <div class="checkout-container" [class.open]="visible">
-    <h2>Checkout</h2>
+    <button class="proceed-btn" (click)="close.emit()">Close Checkout</button>
+    
+    <span>
+        <h2>Checkout&nbsp;:</h2>
+    </span>
 
     <div *ngFor="let item of cart.items" class="checkout-item">
-        <!-- <img [src]="food.imageUrl" alt="{{food.name}}" class="item-image" /> -->
+        <img [src]="item.food.imageUrl" alt="{{item.food.name}}" class="item-image" />
         <div class="item-info">
         <div class="item-name">{{item.food.name}}</div>
         <div class="item-quantity">Items: x{{item.quantity}}</div>
@@ -14,7 +18,7 @@
         <div>Total Price: ${{totalPrice.toFixed(2)}}</div>
     </div>
 
-    <button *ngIf="!showCardForm" (click)="proceedToPayment()" class="proceed-btn">Proceed with Checkout</button>
+    <button *ngIf="!showCardForm" (click)="proceedToPayment()" class="confirm-btn">Proceed with Checkout</button>
 
     <div *ngIf="showCardForm" class="payment-form">
         <label>
@@ -22,13 +26,13 @@
         <input type="text" [(ngModel)]="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
         </label>
         <label>
-        Expiry (MM/YY):
+        Expiration (MM/YY):
         <input type="text" [(ngModel)]="expiry" placeholder="MM/YY" maxlength="5" />
         </label>
         <label>
         CVV:
         <input type="text" [(ngModel)]="cvv" placeholder="123" maxlength="4" />
         </label>
-        <button (click)="confirmOrder()" class="confirm-btn">Confirm Order</button>
+        <button (click)="confirmOrder()" class="confirm-btn" routerLink="/">Confirm Order</button>
     </div>
 </div>

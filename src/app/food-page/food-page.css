@@ -86,10 +86,10 @@
 /* Scrollbar styling */
 .description::-webkit-scrollbar {
   max-height: 100px;
-  width: 10px;
+  width: 6px;
 }
 .description::-webkit-scrollbar-thumb {
-  background-color: #b1832ea7;
+  background-color: rgb(177, 177, 177);
   border-radius: 3px;
 }
 
