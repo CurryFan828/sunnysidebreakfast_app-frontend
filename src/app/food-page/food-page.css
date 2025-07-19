@@ -1,11 +1,12 @@
 .page-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: auto;
-  padding: 20px 0;       /* reduce top/bottom padding */
-  box-sizing: border-box;
+  font-size: larger;
   flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  min-height: 70vh;        /* full viewport height */
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
 .container {
@@ -23,7 +24,9 @@
   box-sizing: border-box;
   background: #fff;
   align-items: flex-start; /* align items at top, let details control height */
-}
+} 
+
+ 
 
 .food-image {
   width: 250px;
