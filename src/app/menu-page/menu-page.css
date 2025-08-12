@@ -93,7 +93,7 @@ img {
 }
 
 .food-item:hover {
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(0, 0, 0); */
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgb(119, 119, 119);
     z-index: 2;
