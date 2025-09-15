@@ -1,0 +1,37 @@
+<app-not-found [visible]="!food" notFoundMessage="Product Not Found!" resetLinkText="Back To Menu"></app-not-found>
+<app-popup-alert type="success"></app-popup-alert>
+
+<div *ngIf="food" class="page-wrapper">
+  <div class="container">
+    <img [src]="food.imageUrl" [alt]="food.name" class="food-image" />
+
+    <div class="details">
+      <div class="info-block">
+        <div class="header-row">
+          <span class="name">{{ food.name }}</span>
+          <span class="favorite {{ food.favorite ? '' : 'not' }}" (click)="toggleFavorite()">❤</span>
+        </div>
+
+        <!-- <div class="tags">
+          <app-tags [foodPageTags]="food.tags"></app-tags>
+        </div> -->
+
+        <div class="cook-time">
+          Time to cook is about <strong>{{ food.cookTime }}</strong> minutes<br>
+        </div>
+
+        <div class="description">
+          <p>{{food.description}}</p>
+        </div>
+
+        <!-- Added wrapper for price + button -->
+        <div class="price-and-button">
+          <div class="price">
+            <span>{{ food.price | currency }}</span>
+          </div>
+          <button (click)="addToCart()" class="add-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

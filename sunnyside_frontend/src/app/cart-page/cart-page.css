@@ -1,0 +1,193 @@
+.container{ 
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 1.5rem;
+    min-height: 70vh;        /* full viewport height */
+
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    flex: 3 0;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 1rem;
+    list-style-type: none;
+    margin: .5rem;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+ul li a{
+    color: black;
+}
+
+ul li a:hover{
+    color: black;
+    border-bottom: 3px solid tan;
+    /* padding: 2px; */
+}
+
+/* Selects the last item that matches this selecter(ul li is the selector), Aka the last item in the cart will not have a bottom border */
+ul li:last-child{
+    border-bottom: none;
+}
+
+ul li img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 20%;
+    object-fit: cover;
+
+}
+
+ul li div{
+    padding: 1rem;
+}
+
+/* 
+This gets all of the div tags under the parent(li) tag execpt for the first child(the first div tag, which holds an img) 
+because we don't want the pictures to be affected by the names of the items in the cart
+ */
+ul li div:not(:first-child){
+    flex-basis: 18%;
+}
+
+ul li select{
+    width: 3rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 1.1rem;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+ul .remove-button{
+    background: linear-gradient(90deg, #b1832ea7 60%);
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 10px 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 650;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition: background 0.2s;
+    max-width: 200px;
+
+}
+
+ul .remove-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);}
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 3;
+    height: 20rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+/* This is the div child from the parent div checkout */
+.checkout>div{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 1rem;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.checkout button{
+    position: center;
+    background: linear-gradient(90deg, #4dc516ef 60%);
+    border: none;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 10px 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 650;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition: background 0.2s;
+    max-width: 200px;
+}
+
+.checkout button:hover{
+    transform: scale(1.03);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.30);
+}
+
+.checkout-panel {
+  position: fixed;
+  top: 0;
+  right: -33.33vw; /* Hide off screen initially */
+  width: 33.33vw;
+  height: 100vh;
+  background: white;
+  box-shadow: -3px 0 6px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.checkout-panel.open {
+  right: 0; /* Slide in */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* ========= CONTROL QUANTITY STYLE ========== */
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.quantity-control span {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.quantity-control button:hover {
+    transform: scale(1.1);
+}

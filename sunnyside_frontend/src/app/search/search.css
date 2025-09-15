@@ -1,0 +1,66 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 32px auto;
+    background: #f4ddba;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 6px 12px;
+    border: 2px solid #b1832ea7; /* tan color */
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1.5;
+    min-height: 24px;
+    padding: 8px 20px;
+    border-radius: 32px;
+    color: #000; /* Make input text black */
+}
+
+.search-bar button {
+    border: none;
+    background: transparent;
+    color: black;
+    font-size: 1rem;
+    border-radius: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    transform: scale(1);
+}
+
+/* Button hover effect */
+.search-bar button:hover {
+    transform: scale(1.04)
+}
+
+/* On hover, grow and outline pink */
+.search-bar:hover {
+    transform: scale(1.01);
+}
+
+.divider{
+    width: 1px;
+    height: 40px;
+    background-color: #b1832ea7;
+    margin: 0 12px;
+    align-self: stretch;
+}
+
+
+
+

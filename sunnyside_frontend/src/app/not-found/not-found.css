@@ -1,0 +1,27 @@
+div {
+  display: flex;
+  font-size: larger;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  min-height: 70vh;        /* full viewport height */
+  padding: 2rem;
+  box-sizing: border-box;
+  /* background-color: rgb(221, 221, 221); */
+}
+
+div a{
+    font-size: 1rem;
+    display: flex;
+    background: #ff7675;
+    padding: 0.75em 2em;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    transition: background 0.2s;
+}
+
+div a:hover { 
+  background: #f18e8e; 
+  /* transform: scale(1.02); */
+}

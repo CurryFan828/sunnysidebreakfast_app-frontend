@@ -1,0 +1,26 @@
+.thank-you-container {
+  display: flex;
+  font-size: larger;
+  flex-direction: column;
+  justify-content: center;  /* vertical centering */
+  align-items: center;      /* horizontal centering */
+  min-height: 70vh;        /* full viewport height */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.home-button {
+    display: inline-block;
+    background: #b1832ea7;
+    padding: 0.75em 2em;
+    border-radius: 10px;
+    margin: 1rem;
+    font-weight: 550;
+    color: black;
+    transition: background 0.2s;
+}
+
+.home-button:hover { 
+    transform: scale(1.03);
+    cursor: pointer;
+}
