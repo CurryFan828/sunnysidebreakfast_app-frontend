@@ -1,28 +1,36 @@
-<header>
+<header [class.hero-transparent]="isHomePage">
   <div class="container">
+
+    <!-- Logo -->
     <img src="/assets/foods/logo.png" alt="My Logo" routerLink="/" class="logo" />
-    <nav>
+
+    <!-- Hamburger Button -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <!-- Desktop Nav (UNCHANGED) -->
+    <nav class="desktop-nav">
       <ul>
         <li>
           <a routerLink="/">Home</a>
           <a routerLink="menu-page">Menu</a>
 
-          <!-- If logged in, show Profile link -->
+          <!-- If logged in -->
           <a *ngIf="isLoggedIn" routerLink="profile" class="profile-link">Profile</a>
 
-          <!-- If NOT logged in, show Login and Continue as Guest -->
+          <!-- If NOT logged in -->
           <ng-container *ngIf="!isLoggedIn">
             <a routerLink="login" class="login-link">Login</a>
-            <!-- <button class="guest-btn" (click)="continueAsGuest()">Continue as Guest</button> -->
           </ng-container>
 
-          <!-- Profile Page -->
+          <!-- Profile icon -->
           <a routerLink="profile">
             <span class="material-icons">account_box</span>    
           </a>
 
-          <!-- Wrap cart link and badge inside a span -->
-          <span class="cart-wrapper" style="position: relative; display: inline-block;">
+          <!-- Cart -->
+          <span class="cart-wrapper">
             <a routerLink="cart-page" class="cart-link">
               <span class="material-icons">shopping_cart</span>
               <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
@@ -32,5 +40,29 @@
         </li>
       </ul>
     </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" *ngIf="menuOpen" (click)="toggleMenu()"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" [class.open]="menuOpen">
+
+    <a routerLink="/" (click)="toggleMenu()">Home</a>
+    <a routerLink="menu-page" (click)="toggleMenu()">Menu</a>
+
+    <a *ngIf="isLoggedIn" routerLink="profile" (click)="toggleMenu()">Profile</a>
+
+    <a *ngIf="!isLoggedIn" routerLink="login" (click)="toggleMenu()">Login</a>
+
+    <a routerLink="profile" (click)="toggleMenu()">
+      <span class="material-icons">account_box</span> Profile
+    </a>
+
+    <a routerLink="cart-page" (click)="toggleMenu()">
+      <span class="material-icons">shopping_cart</span>
+      Cart ({{ cartCount }})
+    </a>
+
   </div>
 </header>

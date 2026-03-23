@@ -43,11 +43,14 @@
             <button (click)="openCheckout()" class="checkout-btn">Checkout</button>
 
              <!-- Slide out checkout panel (desktop) -->
-            <div>
-                <app-checkout-page [cart]="cart" [visible]="showCheckoutPanel" (close)="closeCheckout()">
-                    <button class="close-btn" (click)="closeCheckout()">Close</button>
+            <!-- Desktop only slide-out -->
+            <!-- <div *ngIf="showCheckoutPanel && !isMobile">
+                <app-checkout-page 
+                    [cart]="cart" 
+                    [visible]="showCheckoutPanel" 
+                    (close)="closeCheckout()">
                 </app-checkout-page>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

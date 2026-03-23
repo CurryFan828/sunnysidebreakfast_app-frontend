@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { Cart } from '../shared/models/Cart';
 import { CartService } from '../services/cart/cart.service';
 import { CartItem } from '../shared/models/CartItem';
-import { FoodService } from '../services/food/food.service';
 import { PopupAlertService } from '../services/popup-alert/popup-alert.service';
 import { PopupAlertComponent } from '../popup-alert/popup-alert';
 import { NotFound } from "../not-found/not-found";
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'; // For responsive check
-import { Router } from '@angular/router';
-import { CheckoutPage } from '../checkout-page/checkout-page';
-
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+// import { CheckoutPage } from '../checkout-page/checkout-page';
 
 @Component({
   selector: 'app-cart-page',
-  imports: [CommonModule, RouterModule, PopupAlertComponent, NotFound, CheckoutPage],
+  imports: [CommonModule, RouterModule, PopupAlertComponent, NotFound],
   templateUrl: './cart-page.html',
   styleUrls: ['./cart-page.css']
 })
-export class CartPage implements OnInit{
+export class CartPage implements OnInit {
 
   cart!: Cart;
   totalQuantity: number = 0;
@@ -27,20 +24,18 @@ export class CartPage implements OnInit{
   isMobile: boolean = false;
   showCheckoutPanel: boolean = false;
 
-
   constructor(
     private cartService: CartService,
     private alertService: PopupAlertService,
     private breakpointObserver: BreakpointObserver,
     private router: Router
   ) {
-    this.setCart()
+    this.setCart();
 
-    // Detect if mobile or desktop
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
       this.isMobile = result.matches;
     });
-   }
+  }
 
   ngOnInit(): void {
     this.setCart();
@@ -48,11 +43,8 @@ export class CartPage implements OnInit{
 
   removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.food.id);
-
-    /* 🔴 red popup (color is set in cart-page.css) */
-    this.alertService.show(`${cartItem.food.name} removed from cart\u200B`);   
-     
-    this.setCart(); 
+    this.alertService.show(`${cartItem.food.name} removed from cart\u200B`);
+    this.setCart();
   }
 
   changeQuantity(cartItem: CartItem, quantityInString: string) {
@@ -65,23 +57,19 @@ export class CartPage implements OnInit{
 
   setCart() {
     this.cart = this.cartService.getCart();
-    // Calculate total quantity (sum of all item quantities)
     this.totalQuantity = this.cart.items.reduce((sum, item) => sum + item.quantity, 0);
   }
 
-
   openCheckout() {
-    if (this.isMobile) {
-      // Navigate to full page checkout for mobile
-      this.router.navigate(['/checkout']);
-    } else {
-      // Show slide-out panel for desktop
-      this.showCheckoutPanel = true;
-    }
+    this.router.navigate(['/checkout']);
   }
 
   closeCheckout() {
     this.showCheckoutPanel = false;
+
+    if (this.isMobile) {
+      this.router.navigate(['/cart-page']);
+    }
   }
 
   incrementQuantity(item: CartItem) {
@@ -97,9 +85,7 @@ export class CartPage implements OnInit{
   }
 
   updateTotalQuantity() {
-    // Sum all quantities from cart items
     const cart = this.cartService.getCart();
     this.totalQuantity = cart.items.reduce((sum, i) => sum + i.quantity, 0);
   }
-
 }

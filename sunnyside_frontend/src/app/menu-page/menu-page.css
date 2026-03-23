@@ -2,209 +2,230 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(135deg, #fff8f0 0%, #ffe0e0 100%);
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
+/* ================= PAGE TITLE ================= */
 h1 {
     text-align: center;
-    /* border-bottom: 1px solid black; */
-    margin: 3rem;
+    margin: 1.5rem;
 }
 
-
-img {
-    display: block;
-    margin: 20px auto 10px auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    background: #b1832ea7;
-    padding: 4px;
-    border-radius: 20%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+/* ================= MAIN CONTAINER ================= */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem;
+    min-height: 70vh;
 }
 
-
-
+/* ================= GRID ================= */
 .food-grid {
-    display: grid;
-    /* background-color: lightgray; */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    margin: 0.5rem;
 }
 
-
+/* ================= CARD ================= */
 .food-item {
-    background: rgb(240, 229, 215);
-    border-radius: 18px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    padding: 24px 16px 16px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 420px;
-    transition: box-shadow 0.2s;
-    gap: 14px;
-    position: relative; /* Needed for absolute positioning the heart */
+    justify-content: space-between;
+
+    width: 280px;
+    min-height: 380px;
+
+    margin: 1rem;
+    padding: 1rem;
+
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #f6efe6;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    position: relative;
 }
 
+.food-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+/* ================= FAVORITE ================= */
 .favorite {
     position: absolute;
-    top: 14px;
-    right: 18px;
-    font-size: 1.4rem;
+    top: 10px;
+    right: 12px;
+
+    font-size: 1.3rem;
     color: #ff7675;
-    background: transparent;
-    border-radius: 50%;
-    padding: 6px 8px;
-    /* box-shadow: 0 2px 8px rgba(0,0,0,0.08); */
-    z-index: 3;
-    transition: transform 0.15s, box-shadow 0.15s;
     cursor: pointer;
 }
 
 .favorite.not {
-    color: rgb(184, 184, 184);
+    color: #bbb;
 }
 
-.favorite:hover {
-    transform: scale(1.25);
-    /* box-shadow: 0 2px 12px rgba(0,0,0,0.12); */
-}
-
+/* ================= IMAGE ================= */
 .food-img-wrapper {
-    border-radius: 28px;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 12px;
+
+    margin: 0.5rem auto;
 }
 
 .food-img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 24px;
-    display: block;
+    border-radius: 12px;
 }
-
-.food-item:hover {
-    /* border: 1px solid rgb(0, 0, 0); */
-    transform: scale(1.01);
-    box-shadow: 0 4px 12px rgb(119, 119, 119);
-    z-index: 2;
-    cursor: pointer;
-}
-
-.food-img:hover{
-    transform: scale(1.02);
-    background-color: rgb(255, 182, 193);
-}
-
-.food-desc {
-    font-size: 1rem;
-    color: #444;
-    text-align: center;
-    min-height: 48px;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    flex: 0 0 auto;
-    align-self: center;
-}
-
+/* ================= TEXT ================= */
 .name {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #444;
     text-align: center;
-    margin-bottom: 16px; /* space below description */
-    margin-top: 8px;     /* space above description */
-    align-self: center;
-    min-height: 32px;    /* ensures consistent spacing even if description is short */
 }
 
 .price {
-    text-align: center;
     font-size: 1.1rem;
-    color: #444;
-    font-weight: bold;
-    margin-bottom: 12px;
+    font-weight: 500;
 }
 
+/* ================= FOOTER CONTROLS ================= */
+.product-item-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    gap: 0.5rem;
+}
+
+/* ================= QUANTITY ================= */
 .quantity-controls {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    margin-top: auto;
-    width: 100%;
     justify-content: center;
-    cursor: pointer;
+    gap: 10px;
 }
 
 .quantity-btn {
-    background: #b1832ea7;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 1.3rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    width: 30px;
+    height: 30px;
 
+    font-size: 18px;
+
+    background-color: white;
+    border: none;
+    cursor: pointer;
+
+    border-radius: 6px;
+}
 
 .quantity-btn:hover {
-    background: #ff7675;
+    transform: scale(1.1);
 }
-
 
 .quantity-value {
-    min-width: 28px;
+    width: 40px;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
 }
 
+/* ================= ADD BUTTON ================= */
 .add-cart-btn {
     background: linear-gradient(90deg, #b1832ea7 60%);
-    /* color: #fff; */
     border: none;
-    border-radius: 8px;
-    padding: 10px 22px;
+    border-radius: 12px;
+
+    margin-top: 10px;
+    padding: 10px 20px;
+
     font-size: 1rem;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 650;
+
     box-shadow: 0 2px 6px rgba(0,0,0,0.18);
     transition: background 0.2s;
-    margin-top: 8px;
-    margin-bottom: 10px;
+
     width: 100%;
-    max-width: 180px;
+    max-width: 200px;
 }
 
 .add-cart-btn:hover {
-    background: #ff7675;
-    color: white;
+    transform: scale(1.03);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.3);
 }
 
+/* ================= NOT FOUND / SEARCH AREA ================= */
+app-search,
+app-tags {
+    display: block;
+    margin: 0 auto;
+    max-width: 900px;
+}
 
-@media (max-width: 700px) {
-    .food-grid {
-        grid-template-columns: 1fr 1fr;
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+    .food-item {
+        width: 45%;
     }
 }
 
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 600px) {
     .food-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .food-item {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .food-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .name {
+        font-size: 1.1rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .add-cart-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .food-img-wrapper {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 600px) {
+    .food-img-wrapper {
+        width: 140px;
+        height: 140px;
     }
 }
