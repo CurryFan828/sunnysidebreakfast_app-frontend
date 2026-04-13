@@ -17,7 +17,7 @@ import { PopupAlertComponent } from '../popup-alert/popup-alert';
   selector: 'app-home',
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
-  imports: [CommonModule, Header],
+  imports: [CommonModule, RouterLink],
   standalone: true
 })
 export class HomeComponent implements OnInit {

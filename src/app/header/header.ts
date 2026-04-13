@@ -1,11 +1,14 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 import { CartService } from '../services/cart/cart.service';
-import { Cart } from '../shared/models/Cart';
-import { ShoppingCart } from 'lucide-angular';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from '../home/home';
+
+// import { Cart } from '../shared/models/Cart';
+// import { ShoppingCart } from 'lucide-angular';
+// import { HomeComponent } from '../home/home';
+
 
 @Component({
   selector: 'app-header',
@@ -13,10 +16,13 @@ import { HomeComponent } from '../home/home';
   templateUrl: './header.html',
   styleUrl: './header.css'
 })
-export class Header{
+export class Header implements OnInit{
 
+  menuOpen = false;
   cartCount = 0;
   isLoggedIn = false; // or get from your AuthService or localStorage
+  isHomePage = false; 
+
 
   constructor(private cartService: CartService, private router: Router) {}
   // @Input() isHero = false; // default false, so that its true on home and false everywhere else
@@ -24,6 +30,13 @@ export class Header{
   ngOnInit() {
     this.cartService.totalCount$.subscribe(count => {
       this.cartCount = count;
+      });
+
+    // route detection
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.isHomePage = event.urlAfterRedirects === '/';
       });
   }
 
@@ -33,6 +46,10 @@ export class Header{
     this.isLoggedIn = false; // Just a safety flag if needed
     // Navigate to menu or home page
     this.router.navigate(['/menu-page']);
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 
 }

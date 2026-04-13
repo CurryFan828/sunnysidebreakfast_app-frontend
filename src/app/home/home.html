@@ -1,113 +1,56 @@
-<!DOCTYPE html>
-<!-- BOOTSTRAP JSON // "node_modules/bootstrap/dist/css/bootstrap.min.css" -->
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome | Sunny Side Breakfast</title>
-</head>
-  <body>
-    <!-- =========  HERO SECTION  ========= -->
-    <section class="hero">
-      <img src="../../assets/foods/hero.webp" loading="lazy" alt="Fresh food on a table" class="hero__img"/>
+<!-- HERO -->
+<section class="hero">
+  <img src="assets/foods/hero.webp" alt="Fresh food on a table" class="hero__img"/>
 
-      <div class="hero__overlay">
-        <h1 class="hero__title">Sunny Side Breakfast</h1>
-        <a href="menu-page" class="btn-order">Order&nbsp;Now</a>
+  <div class="hero__overlay">
+    <h1 class="hero__title">Sunny Side Breakfast</h1>
+    <a routerLink="/menu-page" class="btn-order">Order&nbsp;Now</a>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <h2>Customer Favorites</h2>
+
+  <div class="review-grid">
+    <div class="review-card">
+      <img src="assets/foods/food-1.jpg" alt="French Toast">
+      <div class="review-content">
+        <p class="review-title">French Toast</p>
+        <p class="review-text">“Absolutely delicious! The best French toast I've ever had.”</p>
       </div>
-    </section>
+    </div>
 
-
-    <!-- ========== REVIEWS GRID ========== -->
-    <section class="reviews">
-      <h2>Customer Favorites</h2>
-      <div class="review-grid">
-
-        <div class="review-card">
-          <img src="../../assets/foods/food-1.jpg" alt="French Toast" loading="lazy">
-          <div class="review-content">
-            <div>
-              <p class="review-title">French Toast</p>
-              <p class="review-text">“Absolutely delicious! The best French toast I've ever had.”</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <img src="../../assets/foods/food-2.jpg" alt="Pancakes" loading="lazy">
-          <div class="review-content">
-            <div>
-              <p class="review-title">Pancakes</p>
-              <p class="review-text">“Fluffy and light—my kids ask for these every weekend.”</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <img src="../../assets/foods/food-3.jpg" alt="Waffles" loading="lazy">
-          <div class="review-content">
-            <div>
-              <p class="review-title">Waffles</p>
-              <p class="review-text">“Golden and crispy outside, soft inside. Perfect with maple syrup!”</p>
-            </div>
-          </div>
-        </div>
-
+    <div class="review-card">
+      <img src="assets/foods/food-2.jpg" alt="Pancakes">
+      <div class="review-content">
+        <p class="review-title">Pancakes</p>
+        <p class="review-text">“Fluffy and light—my kids ask for these every weekend.”</p>
       </div>
-    </section>
-        
-    <!-- =========  MAP  ========= -->
-    <section class="map-section">
-      <h1>Where we are located</h1>
-      <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104215.40374212393!2d-93.21681469476579!3d35.28780468731299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cc5374e6659f1d%3A0x37b4f9548cba2989!2sRussellville%2C%20AR!5e0!3m2!1sen!2sus!4v1752513463615!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="review-card">
+      <img src="assets/foods/food-3.jpg" alt="Waffles">
+      <div class="review-content">
+        <p class="review-title">Waffles</p>
+        <p class="review-text">“Golden and crispy outside, soft inside. Perfect with maple syrup!”</p>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ====== CAROUSEL SCRIPT ====== -->
-    <!-- <script>
-      console.log('carousel:', document.querySelector('.carousel'));
-      console.log('Carousel script loaded');
-      (function(){
-      const carousel = document.querySelector('.carousel');
-      const track    = carousel.querySelector('.carousel__track');
-      const slides   = Array.from(track.children);
-      const prevBtn  = carousel.querySelector('.carousel__btn.prev');
-      const nextBtn  = carousel.querySelector('.carousel__btn.next');
-      let index = 0;
+<!-- MAP -->
+<section class="map-section">
+  <h1>Where we are located</h1>
 
-      // Helper to compute the visible slide width
-      const getSlideWidth = () => carousel.querySelector('.carousel__track-container').offsetWidth;
-
-      // Move to the current index
-      function update(){
-        track.style.transform = `translateX(-${index * getSlideWidth()}px)`;
-      }
-
-      function next(){
-        index = (index + 1) % slides.length;
-        update();
-      }
-      function prev(){
-        index = (index - 1 + slides.length) % slides.length;
-        update();
-      }
-
-      // Button clicks
-      nextBtn.addEventListener('click', next);
-      prevBtn.addEventListener('click', prev);
-
-      // Auto‑advance every 5 s
-      let timer = setInterval(next, 5000);
-
-      // Pause auto‑advance on hover over the whole carousel area
-      carousel.addEventListener('mouseenter', () => clearInterval(timer));
-      carousel.addEventListener('mouseleave', () => timer = setInterval(next, 5000));
-
-      // Re‑compute on load & resize
-      window.addEventListener('load', update);
-      window.addEventListener('resize', update);
-    })();
-    </script> -->
-  </body>
-</html>
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104215.40374212393!2d-93.21681469476579!3d35.28780468731299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87cc5374e6659f1d%3A0x37b4f9548cba2989!2sRussellville%2C%20AR!5e0!3m2!1sen!2sus!4v1752513463615!5m2!1sen!2sus"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</section>

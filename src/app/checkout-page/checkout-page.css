@@ -24,7 +24,6 @@
   pointer-events: none;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid red */
 }
 
 .checkout-container.open {
@@ -37,7 +36,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 10px;
+  margin: 10px 0;
   border-bottom: 1px solid #bbbaba;
   padding-bottom: 10px;
 }
@@ -46,7 +45,7 @@
   width: 60px;
   height: 60px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .item-info {
@@ -56,10 +55,8 @@
 
 .checkout-summary {
   font-weight: bold;
-  margin-top: 20px;
-  margin: 20px;
+  margin: 20px 0;
 }
-
 
 /* ============================================= */
 /* ✅ PAYMENT & PAYMENT FORM                     */
@@ -67,7 +64,8 @@
 
 .payment-form-wrapper {
   border-top: 2px solid black;
-  /* border: 3px solid blue; */
+  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .payment-form label {
@@ -81,6 +79,7 @@
 }
 
 /* ============= FORM FIELD STYLING ============= */
+
 .form-field {
   position: relative;
   margin-bottom: 20px;
@@ -88,7 +87,7 @@
 
 input {
   width: 100%;
-  padding: 10px 35px 10px 10px; /* extra right padding for the icon */
+  padding: 10px 40px 10px 10px;
   border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -97,7 +96,7 @@ input {
 
 .form-field input {
   border: 2px solid #ccc;
-  padding: 8px 40px 8px 8px; /* space for the checkmark on the right */
+  padding: 8px 40px 8px 8px;
   border-radius: 4px;
   outline: none;
   width: 100%;
@@ -115,7 +114,7 @@ input {
 .checkmark {
   position: absolute;
   right: 10px;
-  top: 71%;
+  top: 74%;
   transform: translateY(-50%);
   font-size: 24px;
   color: #26923f;
@@ -126,11 +125,6 @@ input {
 .form-field.valid .checkmark {
   display: inline;
 }
-
-.form-field.valid .checkmark-icon {
-  display: block;
-}
-
 
 /* ============================================= */
 /* ✅ BUTTONS                                    */
@@ -160,6 +154,7 @@ input {
   color: white;
   border: none;
   border-radius: 20px;
+  margin-top: 10px;
 }
 
 .confirm-btn:hover {
@@ -188,13 +183,81 @@ input {
   transform: scale(1.2);
 }
 
-
 /* ============================================= */
 /* 🧩 MISCELLANEOUS                              */
 /* ============================================= */
 
 span h2 {
   border-bottom: 2px solid gray;
-  width: 160px;
+  width: auto;
   margin-top: 60px;
+}
+
+/* ============================================= */
+/* 📱 MOBILE RESPONSIVENESS                      */
+/* ============================================= */
+
+@media (max-width: 768px) {
+
+  .checkout-container {
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+    transform: translateX(100%);
+  }
+
+  .checkout-container.open {
+    transform: translateX(0);
+  }
+
+  .checkout-wrapper-rows {
+    margin-top: 60px; /* space for close button */
+  }
+
+  /* Make close button behave like a top-left control */
+  .proceed-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 32px;
+    z-index: 10000;
+  }
+
+  span h2 {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .checkout-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .item-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .item-info {
+    flex: 1;
+    margin-left: 10px;
+  }
+
+  .checkout-summary {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .confirm-btn {
+    width: 100%;
+  }
+
+  .payment-form {
+    width: 100%;
+  }
+
+  .form-field input {
+    font-size: 14px;
+  }
 }

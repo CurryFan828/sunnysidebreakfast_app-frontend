@@ -12,12 +12,12 @@ import { LoginPage } from './login-page/login-page';
 import { ProfilePage } from './profile-page/profile-page';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'menu-page', component: MenuPage},
-    {path: 'search/:searchTerm', component: MenuPage},
-    {path: 'tag/:tag', component: MenuPage},
-    {path: 'food/:id', component: FoodPage},
-    {path: 'cart-page', component: CartPage},
+    { path: '', component: HomeComponent},
+    { path: 'menu-page', component: MenuPage},
+    { path: 'search/:searchTerm', component: MenuPage},
+    { path: 'tag/:tag', component: MenuPage},
+    { path: 'food/:id', component: FoodPage},
+    { path: 'cart-page', component: CartPage},
     { path: 'checkout', component: CheckoutPage },
     { path: 'thank-you', component: ThankYou},
     { path: 'login', component: LoginPage},

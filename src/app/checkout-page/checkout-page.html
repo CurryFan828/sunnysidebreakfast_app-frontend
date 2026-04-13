@@ -1,53 +1,68 @@
-
 <!-- Checkout items and proceed button container -->
-<div class="checkout-container" [class.open]="visible">
+<div *ngIf="cart" class="checkout-container open">
     <div class="checkout-wrapper-rows">
-        <button class="proceed-btn material-icons" (click)="close.emit()">keyboard_arrow_right</button>
+        <button class="proceed-btn material-icons" (click)="goBack()">
+            keyboard_arrow_right
+        </button>
 
         <span>
-        <h2>Checkout&nbsp;:</h2>
+            <h2>Checkout&nbsp;:</h2>
         </span>
 
         <div *ngFor="let item of cart.items" class="checkout-item">
-        <img [src]="item.food.imageUrl" alt="{{item.food.name}}" class="item-image" />
-        <div class="item-info">
-            <div class="item-name">{{item.food.name}}</div>
-            <div class="item-quantity">Items: x{{item.quantity}}</div>
-        </div>
+            <img [src]="item.food.imageUrl" alt="{{item.food.name}}" class="item-image" />
+            <div class="item-info">
+                <div class="item-name">{{item.food.name}}</div>
+                <div class="item-quantity">Items: x{{item.quantity}}</div>
+            </div>
         </div>
 
         <div class="checkout-summary">
-        <div>Total Items: {{totalItems}}</div>
-        <div>Total Price: ${{totalPrice.toFixed(2)}}</div>
+            <div>Total Items: {{totalItems}}</div>
+            <div>Total Price: ${{totalPrice.toFixed(2)}}</div>
         </div>
 
-        <button *ngIf="!showCardForm" (click)="proceedToPayment()" class="confirm-btn">Proceed with Checkout</button>
+        <button *ngIf="!showCardForm" (click)="proceedToPayment()" class="confirm-btn">
+            Proceed with Checkout
+        </button>
     </div>
-    <!-- Payment form container inside summary -->
+
+    <!-- Payment form container -->
     <div class="payment-form-wrapper" *ngIf="showCardForm">
         <button type="button" class="chevron-close" (click)="closeCardForm()">
             <span class="material-icons">arrow_drop_up</span>
         </button>
-        <form *ngIf="showCardForm" [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="payment-form">
+
+        <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="payment-form">
+
             <div class="form-field" [class.invalid]="isInvalid('cardNumber')" [class.valid]="isValid('cardNumber')">
                 <label>Card Number</label>
-                <input type="text" formControlName="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" (input)="formatCardNumber($event)" inputmode="numeric" />
+                <input type="text" formControlName="cardNumber"
+                       placeholder="1234 5678 9012 3456"
+                       maxlength="19"
+                       (input)="formatCardNumber($event)"
+                       inputmode="numeric" />
                 <span class="material-icons checkmark">check_circle_outline</span>
             </div>
 
             <div class="form-field" [class.invalid]="isInvalid('expiration')" [class.valid]="isValid('expiration')">
                 <label>Expiration Date</label>
-                <input type="text" formControlName="expiration" placeholder="MM/YY" maxlength="5" />
+                <input type="text" formControlName="expiration"
+                       placeholder="MM/YY"
+                       maxlength="5" />
                 <span class="material-icons checkmark">check_circle_outline</span>
             </div>
 
             <div class="form-field" [class.invalid]="isInvalid('cvv')" [class.valid]="isValid('cvv')">
                 <label>CVV</label>
-                <input type="text" formControlName="cvv" placeholder="123" maxlength="4" />
+                <input type="text" formControlName="cvv"
+                       placeholder="123"
+                       maxlength="4" />
                 <span class="material-icons checkmark">check_circle_outline</span>
             </div>
 
             <button type="submit" class="confirm-btn">Submit Payment</button>
         </form>
     </div>
+
 </div>

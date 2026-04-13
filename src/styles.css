@@ -2,15 +2,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
 }
 
-a {
-    text-decoration: none;
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none;
+  color: black;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
 }

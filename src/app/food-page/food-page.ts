@@ -9,6 +9,7 @@ import { NotFound } from "../not-found/not-found";
 import { PopupAlertService } from '../services/popup-alert/popup-alert.service';
 import { PopupAlertComponent } from '../popup-alert/popup-alert';
 
+
 @Component({
   selector: 'app-food-page',
   imports: [CommonModule, NotFound, PopupAlertComponent],
@@ -42,5 +43,13 @@ export class FoodPage implements OnInit{
   addToCart() {
     this.cartService.addToCart(this.food);
     this.alertService.show(`${this.food.name} added to cart.`);
+  }
+
+  testClick() {
+    console.log('Back button clicked');
+  }
+
+  goBack() {
+    this.router.navigate(['/menu-page']);
   }
 }
