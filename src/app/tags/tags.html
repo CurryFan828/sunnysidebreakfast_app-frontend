@@ -1,14 +1,9 @@
-<div *ngIf="tags">
-    <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}">
-        {{tag.name}}({{tag.count}})  <!-- Should look like this in the app "All(7), Sweet(4)" -->
-    </a>
-</div>
+@if (tags$ | async; as tags) {
+  <div>
+    @for (tag of tags; track tag.name) {
+      <a routerLink="/tag/{{tag.name}}">{{tag.name}}</a>
+    }
+  </div>
+}
 
 <hr class="pills-divider">
-
-
-<div *ngIf="foodPageTags">
-    <a *ngFor="let tagName of foodPageTags" routerLink="/tag/{{tagName}}">
-        {{tagName}}
-    </a>
-</div>

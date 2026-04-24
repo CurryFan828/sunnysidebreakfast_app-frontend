@@ -97,6 +97,8 @@ export class CheckoutPage {
       container.classList.remove('open');
     }
 
+    this.cartService.clearCart();
+
     // Wait for animation to finish before navigating
     setTimeout(() => {
       this.close.emit();

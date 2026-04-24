@@ -27,7 +27,7 @@ import { Footer } from "./footer/footer";
 //     FormsModule
 //   ],
 
-//   providers: [],
+  // providers: [],
 
 //   bootstrap: [App]
 // })
@@ -39,7 +39,7 @@ import { Footer } from "./footer/footer";
   styleUrls: ['./app.css']
 })
 export class App {
-  protected title = 'foodmine-course';
+  protected title = 'SunnySide Breakfast';
 
   isHomePage = false;
 
