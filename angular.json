@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "foodmine-course": {
+    "sunnyside-breakfast": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "foodmine-course:build:production"
+              "buildTarget": "sunnyside-breakfast:build:production"
             },
             "development": {
-              "buildTarget": "foodmine-course:build:development"
+              "buildTarget": "sunnyside-breakfast:build:development"
             }
           },
           "defaultConfiguration": "development"

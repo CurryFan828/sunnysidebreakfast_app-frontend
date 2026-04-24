@@ -1,6 +1,6 @@
 {
-  "name": "foodmine-course",
-  "version": "0.0.0",
+  "name": "sunnyside-breakfast",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
